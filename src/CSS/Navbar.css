@@ -1,0 +1,22 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0rem 2rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.navbar h1 {
+    font-size: 1.5rem;
+    color: var(--accent);
+}
+.nav-links {
+    display: flex;
+    gap: 1rem;
+}
+.nav-links a {
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--nav-link);
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
