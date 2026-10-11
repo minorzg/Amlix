@@ -1,19 +1,34 @@
-# React + Vite
+# 🎬 Amlix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**A modern movie discovery app built with React.**
 
-Currently, two official plugins are available:
+Amlix lets users explore recently released movies, discover films through an external API, and sort them by release date or rating. It features a clean interface with light and dark modes for a comfortable browsing experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Features
 
-## React Compiler
+- 🎥 **Movie Discovery** — Explore recently released movies.
+- 📅 **Sort by Release Date** — Find the latest releases.
+- ⭐ **Rating Sorting** — Organize movies by their ratings.
+- 🌗 **Dark & Light Mode** — Switch between themes.
+- 🔌 **API Integration** — Fetch movie information dynamically.
+- 📱 **Responsive Interface** — Browse movies across different screen sizes.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## 🚫 What Amlix Doesn't Do
 
-Note: This will impact Vite dev & build performances.
-You can also try [the experimental native React Compiler support in plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md#rust-react-compiler) by using `compiler: true` in the plugin options instead of using the Babel plugin.
+- No movie streaming or playback.
+- No TV series — movies only.
 
-## Expanding the ESLint configuration
+## 🛠️ Built With
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript
+- External Movie API
+- CSS
+
+## 🎯 Project Goal
+
+Amlix is a personal development project focused on building a modern movie discovery experience while practicing React, API integration, state management, filtering, and sorting.
+
+---
+
+**Amlix — Discover your next movie.** 🍿
