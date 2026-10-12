@@ -1,4 +1,4 @@
-import {useEffect,useState} from 'react'
+import {useEffect,useState,useMemo} from 'react'
 import '../../CSS/Movielist.css'
 import MovieCard from './MovieCard'
 import Filtergroup from './Filtergroup';
@@ -6,46 +6,37 @@ import _ from 'lodash';
 
 const Movielist = ({type, title}) => {
     const [movies, setMovies] = useState([]);
-    const [filteredMovies, setFilteredMovies] = useState([]);
     const [rating, setRating] = useState(0);
     const [sort, setSort] = useState({by: 'default', order: 'asc'});
 
 
-    const getdata = async () => {
-       const res =await fetch(`https://api.themoviedb.org/3/movie/${type}?api_key=a56b4732ea114da8005fba28fb9d8279`)
-         const data = await res.json();
-         setMovies(data.results);
-         setFilteredMovies(data.results);
-    }
-    
     useEffect(() => {
-        getdata()
-    }, []);
+        let ignore = false;
+        const getdata = async () => {
+           const res = await fetch(`https://api.themoviedb.org/3/movie/${type}?api_key=a56b4732ea114da8005fba28fb9d8279`)
+             const data = await res.json();
+             if (!ignore) setMovies(data.results);
+        }
+        getdata();
+        return () => { ignore = true; };
+    }, [type]);
 
     const handlefilter = rate => {
         if(rate === rating){
             setRating(0);
-            setFilteredMovies(movies);
         }
         else{
         setRating(rate);
-        const filtred = movies.filter(movie => movie.vote_average >= rate);
-        setFilteredMovies(filtred);
         }
     };
 
-    useEffect(() => {
+    const filteredMovies = useMemo(() => {
+        const filtered = rating > 0 ? movies.filter(movie => movie.vote_average >= rating) : movies;
         if(sort.by !== 'default'){
-            const sortedmovies= _.orderBy(filteredMovies, [sort.by], [sort.order]);
-            setFilteredMovies(sortedmovies);
+            return _.orderBy(filtered, [sort.by], [sort.order]);
         }
-    }, [sort])
-
-
-    const handlesort = e => {
-        const {name, value} = e.target;
-        setSort(prev => ({...sort, [name]: value}));
-    };
+        return filtered;
+    }, [movies, rating, sort]);
 
   return (
     

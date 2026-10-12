@@ -9,6 +9,9 @@
 }
 html{
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    scroll-padding-top: 5rem;
 }
 :root {
     --bg-color: #ffffff;
@@ -37,6 +40,17 @@ body {
     color: var(--text-color);
     font-family: 'Montserrat', sans-serif;
     transition: background-color 0.3s, color 0.3s;
+    overflow-x: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-tap-highlight-color: transparent;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+a, button, select, li {
+    -webkit-tap-highlight-color: transparent;
 }
 .align_center {
     display: flex;
